@@ -4,13 +4,15 @@
 #include <sstream>
 #include <unordered_map>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
 int main(){
-    ifstream file("./input/input_day4.txt");
+    ifstream file("../input/input_day4.txt");
     string line, temp;
     int sum = 0;
+    vector<int> num_matches, individual_cards;
 
     while(getline(file, line)){
         stringstream ss (line);
@@ -42,8 +44,16 @@ int main(){
             }
         }
         // after totalling the matches increment the sum by the correct num of matches
-        if(matches == 0){ sum += 0; }
-        else{ sum += pow(2, (matches-1)); }
+        num_matches.push_back(matches);
+        individual_cards.push_back(1);
+    }
+
+    // go thru the matches array to calculate how many extra cards you won
+    for(int i=0; i < individual_cards.size(); i++){
+        for(int j=i+1; j <= i+num_matches[i]; j++){
+            individual_cards[j] += individual_cards[i];
+        }
+        sum += individual_cards[i];
     }
 
     cout << sum << endl;

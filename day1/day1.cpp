@@ -13,7 +13,7 @@ using namespace std;
 int main(){
     // starting params
     string line;
-    ifstream file("./input/input_day1.txt");
+    ifstream file("../input/input_day1.txt");
 
     vector<string> numbers = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 

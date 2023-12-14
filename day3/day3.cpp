@@ -56,7 +56,7 @@ bool is_adj(vector<string> &map, int index, int row, int length){
 }
 
 int main(){
-    ifstream file("./input/input_day3.txt");
+    ifstream file("../input/input_day3.txt");
     string line;
     int sum = 0;
     vector<string> part_map;
